@@ -1,0 +1,41 @@
+{% extends 'reports/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center mb-5 animate__animated animate__zoomIn">
+        <h1 class="display-3 fw-bold">Report an <span class="text-info">Emergency</span></h1>
+        <p class="opacity-75">Instant satellite-linked reporting for the Polokwane Municipality.</p>
+    </div>
+
+    <div class="col-md-6 mb-5">
+        <div class="glass-card p-5 animate__animated animate__fadeInUp">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label small text-uppercase fw-bold text-info">Select Infrastructure Issue</label>
+                    <select name="category" class="form-select bg-dark text-white border-secondary py-3">
+                        <option value="Pothole">🕳️ Hazardous Pothole</option>
+                        <option value="Water">🌊 High-Pressure Water Leak</option>
+                        <option value="Power">⚡ Area Power Outage</option>
+                        <option value="Traffic">🚨 Traffic Light Malfunction</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small text-uppercase fw-bold text-info">Detection Location</label>
+                    <input type="text" name="location" class="form-control bg-dark text-white border-secondary" placeholder="Street Address, Kimberley" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small text-uppercase fw-bold text-info">Detailed Description</label>
+                    <textarea name="description" class="form-control bg-dark text-white border-secondary" rows="3" placeholder="Describe the severity..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-neon w-100">
+                    DEPLOY REPAIR REQUEST
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

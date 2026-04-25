@@ -1,0 +1,56 @@
+{% extends 'reports/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4 animate__animated animate__fadeIn">
+        <h2 class="fw-bold"><i class="fas fa-radar text-info"></i> Mission Control</h2>
+        <p class="text-info">Real-time oversight of Kimberley Infrastructure.</p>
+    </div>
+
+    {% for report in reports %}
+    <div class="col-md-12 mb-4">
+        <div class="glass-card p-4 border-start 
+            {% if report.status == 'Pending' %}border-warning
+            {% elif report.status == 'Resolved' %}border-success
+            {% elif report.status == 'Disputed' %}border-danger
+            {% else %}border-info{% endif %} border-5 animate__animated animate__slideInRight">
+            
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <span class="badge 
+                        {% if report.status == 'Pending' %}bg-warning text-dark
+                        {% elif report.status == 'Resolved' %}bg-success
+                        {% elif report.status == 'Disputed' %}bg-danger
+                        {% else %}bg-info{% endif %} mb-2">
+                        {{ report.status|upper }}
+                    </span>
+                    <h3 class="fw-bold">{{ report.category }}: {{ report.location }}</h3>
+                    <p class="opacity-75">{{ report.description }}</p>
+                </div>
+                <div class="text-end text-muted small">
+                    ID: #00{{ report.id }}<br>
+                    {{ report.created_at|timesince }} ago
+                </div>
+            </div>
+            
+            {% if report.status != 'Resolved' and report.status != 'Disputed' %}
+            <div class="mt-4 p-4 rounded-4 bg-black bg-opacity-50 border border-secondary">
+                <h6 class="text-info fw-bold mb-3"><i class="fas fa-user-shield"></i> Quality Control</h6>
+                <p class="small">If the municipal team has arrived, please verify the outcome:</p>
+                <a href="{% url 'verify_fix' report.id %}" class="btn btn-success btn-sm px-4 rounded-pill me-2">Verify Fix</a>
+                <a href="{% url 'dispute_fix' report.id %}" class="btn btn-outline-danger btn-sm px-4 rounded-pill">Dispute Resolution</a>
+            </div>
+            {% elif report.status == 'Disputed' %}
+            <div class="mt-3 p-2 bg-danger bg-opacity-25 rounded text-center">
+                <small><i class="fas fa-exclamation-triangle"></i> Escalated to Provincial Oversight</small>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center py-5">
+        <h4 class="text-muted">All systems operational.</h4>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
