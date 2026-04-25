@@ -1,9 +1,9 @@
 🏙️ CivicConnect Pro
 Billion-Dollar Infrastructure Recovery Portal
-Redefining Citizen-Government Interaction for Kimberley
+Redefining Citizen-Government Interaction for Polokwane Municipality
 
 🚀 The Vision
-CivicConnect Pro is a high-fidelity HCI prototype built to bridge the trust gap between the Kimberley Municipality and its residents. Moving beyond simple form-filling, this platform implements Emotional Design and Real-Time Transparency to turn frustrated citizens into empowered stakeholders.
+CivicConnect Pro is a high-fidelity HCI prototype built to bridge the trust gap between the Polokwane Municipality and its residents. Moving beyond simple form-filling, this platform implements Emotional Design and Real-Time Transparency to turn frustrated citizens into empowered stakeholders.
 
 🛠️ Problem Statement (Based on User Research)
 Our research identified two critical failure points in existing systems:
