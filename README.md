@@ -55,3 +55,11 @@ Access the UI: Open http://127.0.0.1:8000/ in your browser.
 
 📈 HCI Prototype Evolution
 "In HCI, the interface is the product."
+
+This version was reconstructed from the ground up to move away from "Basic HTML" into a Professional CX (Citizen Experience) platform. Every micro-interaction, from the hover effects on the "Deploy" button to the glassmorphic blur of the dashboard, was designed to foster a sense of speed, security, and government accountability.
+
+Developed by: [IamKholofeloPhala] Kholofelo Phalakatsela
+
+Module: NHCI63110 - Human-Computer Interaction
+
+Academic Year: 2026
